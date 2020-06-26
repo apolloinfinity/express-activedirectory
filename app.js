@@ -17,8 +17,6 @@ app.set('views', 'views');
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.render('index');
-})
+app.use('/', require('./routes/auth.routes'))
 
 app.listen(PORT, console.log(`Server running on port ${PORT}`));

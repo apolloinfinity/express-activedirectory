@@ -1,4 +1,6 @@
 const ActiveDirectory = require('activedirectory');
+const dotenv = require('dotenv');
+dotenv.config({ path: './config/config.env' });
 
 const config = {
     url:process.env.AD_HOST,
