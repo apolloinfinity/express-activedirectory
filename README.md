@@ -2,4 +2,4 @@
 
 [Passport Active Directory Great Example](https://stackoverflow.com/questions/52546650/authenticating-with-passport-js-activedirectory-doesnt-maintain-session)
 
-[Code for Active Directory](https://github.com/rickbergfalk/sqlpad/blob/master/server/auth-strategies/ldap.js)
+[Code for Active Directory](https://github.com/rickbergfalk/sqlpad/blob/master/server/auth-strategies/ldap.js)# express-activedirectory
