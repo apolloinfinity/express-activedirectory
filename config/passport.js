@@ -1,4 +1,3 @@
-const passport = require('passport');
 const ActiveDirectoryStrategy = require('passport-activedirectory');
 const ActiveDirectory = require('activedirectory');
 const dotenv = require('dotenv');

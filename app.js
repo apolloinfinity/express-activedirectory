@@ -1,7 +1,6 @@
 const express = require('express');
 const session = require('express-session');
 const passport = require('passport');
-const ADStrategy = require('passport-activedirectory');
 const dotenv = require('dotenv');
 
 const { ensureAuth, forwardAuth } = require('./middleware/auth');
@@ -15,6 +14,8 @@ connectDB();
 const PORT = process.env.PORT || 5000;
 
 const app = express();
+
+require('./config/passport')(passport);
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
@@ -34,31 +35,10 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
-require('./config/passport')(passport);
+
+app.use('/users', require('./routes/user.routes'));
+app.use('/', require('./routes/index.routes.js'));
+
 // app.use('/', require('./routes/route'));
-let opts = {
-	failWithError: true,
-	successRedirect: '/dashboard',
-	failureRedirect: '/login',
-};
-
-app.get('/login', forwardAuth, (req, res) => {
-	res.render('login');
-});
-
-app.post('/login', (req, res, next) => {
-	passport.authenticate('ActiveDirectory', opts)(req, res, next);
-});
-
-app.get('/dashboard', ensureAuth, (req, res) => {
-	res.render('home', {
-		user: req.user,
-	});
-});
-
-app.get('/logout', (req, res) => {
-	req.logout();
-	res.redirect('/login');
-});
 
 app.listen(PORT, console.log(`Server running on port ${PORT}`));
