@@ -3,9 +3,7 @@ const session = require('express-session');
 const passport = require('passport');
 const dotenv = require('dotenv');
 
-const { ensureAuth, forwardAuth } = require('./middleware/auth');
-
-const connectDB = require('./config/db');
+const connectDB = require('./config/database.config');
 
 dotenv.config({ path: './config/config.env' });
 
@@ -15,7 +13,7 @@ const PORT = process.env.PORT || 5000;
 
 const app = express();
 
-require('./config/passport')(passport);
+require('./config/passport.config')(passport);
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
@@ -38,7 +36,5 @@ app.use(passport.session());
 
 app.use('/users', require('./routes/user.routes'));
 app.use('/', require('./routes/index.routes.js'));
-
-// app.use('/', require('./routes/route'));
 
 app.listen(PORT, console.log(`Server running on port ${PORT}`));
