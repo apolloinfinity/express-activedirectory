@@ -6,8 +6,8 @@
     <title>Home | Welcome</title>
 </head>
 <body>
+    <%- include('./includes/_navbar.ejs') %>
     <h1>Welcome <%= user.displayName %>!</h1>
     <p>Important information that should be protected</p>
-    <a href="/users/logout" class="btn btn-secondary">Logout</a>
 </body>
 </html>
