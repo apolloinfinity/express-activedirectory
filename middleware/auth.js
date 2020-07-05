@@ -20,18 +20,16 @@ module.exports = {
 	},
 
 	// TODO: will need to add users are allowed to see what once I expand the project more.
-	checkGroup: (req, res, next) => {
+	checkGroup: async (req, res, next) => {
 		let groups = req.user.groups;
 		for (group of groups) {
-			if (group.cn === 'Technicians') {
-				res
-					.status(401)
-					.render('401', {
-						pageTitle: 'Unauthorized',
-					})
-					.end();
+			if ((await group.cn) === 'Technicians') {
+				return res.status(403).render('403');
 			}
 		}
 		next();
+	},
+	loggedIn: async (param, req, res, next) => {
+		loggedIn: true;
 	},
 };
