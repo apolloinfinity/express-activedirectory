@@ -1,7 +1,10 @@
 const passport = require('passport');
 
 exports.loginPage = (req, res) => {
-	res.render('login');
+	res.render('login', {
+		title: 'Login',
+		loggedIn: false,
+	});
 };
 
 exports.login = (req, res, next) => {
