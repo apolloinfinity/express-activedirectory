@@ -5,12 +5,12 @@ const ad = AD;
 
 module.exports = (passport) => {
 	passport.serializeUser((user, done) => {
-		console.log('userStrategy -- serialized:', user);
+		// console.log('userStrategy -- serialized:', user);
 		done(null, user);
 	});
 
 	passport.deserializeUser((user, done) => {
-		console.log('userStrategy -- deserializeUser', user);
+		// console.log('userStrategy -- deserializeUser', user);
 		done(null, user);
 	});
 
