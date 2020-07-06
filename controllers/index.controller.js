@@ -1,7 +1,7 @@
 exports.dashboard = (req, res) => {
 	res.render('home', {
 		user: req.user,
-		title: `Welcome ${req.user.displayName}`,
+		title: `Home`,
 		loggedIn: true,
 	});
 };

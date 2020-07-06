@@ -9,13 +9,15 @@ exports.loginPage = (req, res) => {
 
 exports.login = (req, res, next) => {
 	passport.authenticate('ActiveDirectory', {
-		failWithError: true,
+		// failWithError: true,
 		successRedirect: '/dashboard',
 		failureRedirect: '/users/login',
+		failureFlash: true,
 	})(req, res, next);
 };
 
 exports.logout = (req, res) => {
 	req.logout();
+	req.flash('success_msg', 'You are logged out');
 	res.redirect('/users');
 };
