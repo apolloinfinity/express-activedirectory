@@ -1,11 +1,18 @@
-<form action="/users/login" method="POST">
-    <div>
-        <label for="email">email</label>
-        <input type="email" name="email" id="email" placeholder="email">
+<div class="">
+    <div class="card card-body">
+        <h1>Login</h1>
+        {{>_messages}}
+        <form action="/users/login" method="POST">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="email" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+
     </div>
-    <div>
-        <label for="password">password</label>
-        <input type="password" name="password" id="password" placeholder="password">
-    </div>
-    <button type="submit">Login</button>
-</form>
+</div>
