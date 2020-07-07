@@ -1,6 +1,7 @@
 const ActiveDirectoryStrategy = require('passport-activedirectory');
 
 const AD = require('./ad.config');
+const { response } = require('express');
 const ad = AD;
 
 module.exports = (passport) => {
@@ -21,15 +22,25 @@ module.exports = (passport) => {
 				usernameField: 'email',
 				ldap: ad,
 			},
-			function(profile, ad, done) {
-				ad.getGroupMembershipForUser(profile._json.dn, function(
-					err,
-					groups
-				) {
+			(profile, ad, done) => {
+				ad.findUser(profile._json.userPrincipalName, (err, user) => {
 					// console.log(groups);
 					if (err) return done(err);
-					profile.groups = groups;
-					return done(null, profile);
+					if (!user) {
+						return done(null, false, {
+							message: 'Email or password is wrong',
+						});
+					}
+
+					ad.getGroupMembershipForUser(profile._json.dn, function(
+						err,
+						groups
+					) {
+						// console.log(groups);
+						if (err) return done(err);
+						profile.groups = groups;
+						return done(null, profile);
+					});
 				});
 			}
 		)
