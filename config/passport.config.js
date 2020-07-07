@@ -1,7 +1,6 @@
 const ActiveDirectoryStrategy = require('passport-activedirectory');
 
 const AD = require('./ad.config');
-const { response } = require('express');
 const ad = AD;
 
 module.exports = (passport) => {
