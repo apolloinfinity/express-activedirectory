@@ -9,3 +9,4 @@
 [Working example of ActiveDirectory with JWT auth](https://github.com/rafael-pardinho/trabalhos-nodejs)
 
 [Code for setting active nav button to current page](https://stackoverflow.com/questions/37580508/highlight-current-page-navigation-link)
+[Possible answer for password failure](https://github.com/qgasd/manager-project/blob/master/manager-server/routes/login.js)
