@@ -7,14 +7,12 @@ exports.loginPage = (req, res) => {
 	});
 };
 
-exports.login = (req, res, next) => {
-	passport.authenticate('ActiveDirectory', {
-		// failWithError: true,
-		successRedirect: '/dashboard',
-		failureRedirect: '/users/login',
-		failureFlash: true,
-	})(req, res, next);
-};
+// exports.login = (req, res, next) => {
+// 	passport.authenticate('ActiveDirectory', {
+// 		failWithError: true,
+// 		successRedirect: '/dashboard',
+// 	})(req, res, next);
+// };
 
 exports.logout = (req, res) => {
 	req.logout();
