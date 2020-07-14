@@ -10,3 +10,5 @@
 
 [Code for setting active nav button to current page](https://stackoverflow.com/questions/37580508/highlight-current-page-navigation-link)
 [Possible answer for password failure](https://github.com/qgasd/manager-project/blob/master/manager-server/routes/login.js)
+
+[Answer for catching LDAP Error](https://stackoverflow.com/questions/46325752/unable-to-catch-invalidcredentialserror-with-passport-activedirectory)
