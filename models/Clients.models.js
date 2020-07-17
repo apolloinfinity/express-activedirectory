@@ -8,6 +8,7 @@ const ClientSchema = new Schema({
 	company_name: String,
 	job_title: String,
 	department: String,
+	support_tickets: Array,
 });
 
 const Client = model('Client', ClientSchema);
