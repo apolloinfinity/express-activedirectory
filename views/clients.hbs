@@ -1,5 +1,7 @@
 <h1>{{title}}</h1>
 <p>Only authorized personnel see this page</p>
+
+
 {{#if clients}}
 <ul class="m-0 p-0">
     {{#each clients}}
@@ -7,8 +9,8 @@
         <div class="card-body">
             <h5 class="card-title">{{first_name}} {{last_name}}</h5>
             <h6 class="card-subtitle my-2 text-muted">Company: {{company_name}}</h6>
-            <a href="#" class="btn btn-primary">Client Profile</a>
-            <a href="#" class="btn btn-secondary">Create Support Ticket</a>
+            <a href="clients/{{_id}}" class="btn btn-primary">Client Profile</a>
+            <a href="" class="btn btn-secondary">Create Support Ticket</a>
         </div>
     </div>
     {{/each}}
