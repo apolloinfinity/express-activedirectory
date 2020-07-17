@@ -22,3 +22,22 @@ exports.clients = async (req, res) => {
 		throw error;
 	}
 };
+
+exports.clientProfile = async (req, res) => {
+	try {
+		const { id } = await req.params;
+		const client = await Client.findOne({ _id: id }).lean();
+		console.log(client);
+		res.render('client-profile', {
+			title: client.first_name,
+			loggedIn: true,
+			client: client,
+		});
+	} catch (error) {
+		throw error;
+	}
+};
+
+exports.search = async (req, res) => {
+	// let user = Client.fin
+};
