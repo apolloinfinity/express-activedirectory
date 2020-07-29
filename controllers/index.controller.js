@@ -37,7 +37,3 @@ exports.clientProfile = async (req, res) => {
 		throw error;
 	}
 };
-
-exports.search = async (req, res) => {
-	// let user = Client.fin
-};
