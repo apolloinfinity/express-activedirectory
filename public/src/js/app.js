@@ -9,3 +9,28 @@ $(document).ready(() => {
 		}
 	});
 });
+
+$(function() {
+	$('#search').autocomplete({
+		source: function(req, res) {
+			$.ajax({
+				url: 'search-client/', // must be same as route name
+				data: 'jsonp',
+				type: 'GET',
+				data: req,
+				success: function(data) {
+					console.log(data);
+				},
+				error: function(err) {
+					console.error(err.stats);
+				},
+			});
+		},
+		minLength: 1,
+		select: function(event, ui) {
+			if (ui.item) {
+				$('#search').text(ui.item.label);
+			}
+		},
+	});
+});
