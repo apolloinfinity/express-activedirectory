@@ -1,2 +1,26 @@
-<h1>Welcome {{user.displayName}}!</h1>
-<p>Everyone who is authenticated should see this page.</p>
+<div class="row text-center mt-5 pt-5">
+    <div class="col-md-12">
+        <h1 class="display-4">Welcome {{user.displayName}}!</h1>
+
+    </div>
+
+</div>
+<div class="row mt-4">
+    <div class="col-md-6 offset-md-3">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <button class="btn btn-secondary" type="button" id="button-addon1">Search</button>
+            </div>
+            <input type="text" id="search" class="form-control" placeholder=""
+                aria-label="Example text with button addon" aria-describedby="button-addon1">
+        </div>
+        {{!-- <div class="input-group mb-3">
+
+            <input type="text" id="search" name="search" class="form-control" placeholder="Recipient's username"
+                aria-label="Recipient's username" aria-describedby="button-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-secondary" type="button" id="button-addon2">Search</button>
+            </div>
+        </div> --}}
+    </div>
+</div>
