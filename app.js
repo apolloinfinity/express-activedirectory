@@ -63,4 +63,7 @@ app.use((req, res, next) => {
 app.use('/users', require('./routes/user.routes'));
 app.use('/', require('./routes/index.routes.js'));
 
-app.listen(PORT, console.log(`Server running on port ${PORT}`));
+app.listen(
+	PORT,
+	console.log(`Server running on http://node.devops.net/${PORT}`)
+);
