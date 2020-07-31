@@ -1,28 +1,45 @@
 const Client = require('../models/Clients.models');
 const { deserializeUser } = require('passport');
 
-exports.search = async (req, res, next) => {
-	let regex = new RegExp(req.query['term'], 'i');
-	const clientFilter = await Client.find(
-		{ first_name: regex },
-		{ first_name: 1 }
-	)
-		.sort({ first_name: -1 })
-		.limit(20);
-	await clientFilter.exec(function(err, data) {
-		let result = [];
-		if (!err) {
-			if (data && data.length && data.length > 0) {
-				data.forEach((client) => {
-					let obj = {
-						id: client._id,
-						label: client.first_name,
-						company: client.company,
-					};
-					result.push(obj);
-				});
+exports.autoCompleteSearch = async (req, res, next) => {
+	try {
+		let regex = new RegExp(req.query['term'], 'i');
+		const clientFilter = Client.find(
+			{ first_name: regex },
+			{ id: 1, first_name: 1, last_name: 1, company_name: 1 } // To get the label to show fist and last name, key/val pairs must be specified.
+		)
+			.sort({ first_name: -1 })
+			.sort({ last_name: -1 })
+			.limit(20);
+		clientFilter.exec(function(err, data) {
+			let result = [];
+			if (!err) {
+				if (data && data.length && data.length > 0) {
+					data.forEach((client) => {
+						let obj = {
+							id: client.id,
+							label: `${client.id} ${client.first_name} ${client.last_name}`,
+
+							company: client.company_name,
+						};
+						result.push(obj);
+						console.log(obj);
+					});
+				}
+				res.jsonp(result);
 			}
-			res.jsonp(result);
-		}
-	});
+		});
+	} catch (error) {
+		throw error;
+	}
+};
+
+exports.getClient = async (req, res, next) => {
+	try {
+		const { id } = await req.query;
+		const client = await Client.find({ id: id });
+		res.status(200).json(client[0]);
+	} catch (error) {
+		throw error;
+	}
 };
