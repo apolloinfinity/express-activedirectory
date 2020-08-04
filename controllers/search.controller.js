@@ -1,5 +1,4 @@
 const Client = require('../models/Clients.models');
-const { deserializeUser } = require('passport');
 
 exports.autoCompleteSearch = async (req, res, next) => {
 	try {
