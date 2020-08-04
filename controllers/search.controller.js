@@ -17,7 +17,7 @@ exports.autoCompleteSearch = async (req, res, next) => {
 					data.forEach((client) => {
 						let obj = {
 							id: client.id,
-							label: `${client.id} ${client.first_name} ${client.last_name}`,
+							label: `${client.first_name} ${client.last_name}`,
 
 							company: client.company_name,
 						};
@@ -35,9 +35,14 @@ exports.autoCompleteSearch = async (req, res, next) => {
 
 exports.getClient = async (req, res, next) => {
 	try {
-		const { id } = await req.query;
-		const client = await Client.find({ id: id });
-		res.status(200).json(client[0]);
+		const { first_name, last_name } = await req.query;
+		const client = await Client.findOne({ first_name, last_name });
+		console.log(client);
+		// if (!client) {
+		// 	res.status(204).json({ msg: 'Client not found' });
+		// }
+		// res.status(200).json(client[0]);
+		res.status(200);
 	} catch (error) {
 		throw error;
 	}
