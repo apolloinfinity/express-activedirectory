@@ -36,13 +36,15 @@ exports.autoCompleteSearch = async (req, res, next) => {
 exports.getClient = async (req, res, next) => {
 	try {
 		const { first_name, last_name } = await req.query;
+
 		const client = await Client.findOne({ first_name, last_name });
-		console.log(client);
-		// if (!client) {
-		// 	res.status(204).json({ msg: 'Client not found' });
-		// }
-		// res.status(200).json(client[0]);
-		res.status(200);
+		if (!client) {
+			console.log('client not found');
+			res.status(404).json({ msg: 'Client not found' });
+		} else {
+			console.log(client);
+			res.status(200).json(client);
+		}
 	} catch (error) {
 		throw error;
 	}

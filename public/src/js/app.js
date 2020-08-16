@@ -40,16 +40,18 @@ $(function() {
 $('#btn-search').click(function(e) {
 	const value = $('#search').val();
 	let wholeName = value.split(' ');
-	let id = wholeName[0];
-	$.get('/search', { id: id }, (data, status) => {
-		console.log(data);
-		$('.results').addClass('card shadow-sm').html(`
+	$.get('/search', {
+		first_name: wholeName[0],
+		last_name: wholeName[1],
+	})
+		.done((data) => {
+			$('.results').addClass('card shadow-sm').html(`
 		<ul class="list-group list-group-flush">
-            
+
             <li class="list-group-item d-flex justify-content-around align-items-center">
                 <div class="text-center">
                     <p><strong>Client ID:</strong></p>
-                    <p onClick="newTab()" class="workOrder" id="workOrderLink"><i class="fas fa-binoculars"></i> ${data.id}</p>
+                    <a href="clients/${data._id}">${data.id}</a>
                 </div>
                 <div class="text-center">
                     <p><strong>Name:</strong></p>
@@ -57,7 +59,7 @@ $('#btn-search').click(function(e) {
                 </div>
                 <div class="text-center">
                     <p><strong>Company:</strong></p>
-                    <p>${data.company_name}</p>
+                    <p>${data.company}</p>
 				</div>
 				<div class="text-center">
                     <p><strong>Department:</strong></p>
@@ -68,11 +70,18 @@ $('#btn-search').click(function(e) {
                     <p>${data.support_tickets
 						? data.support_tickets.length
 						: 0}</p>
-                </div>
-                
-                
+				</div>
             </li>
         </ul>
 		`);
-	});
+		})
+		.fail((error) => {
+			console.log(error);
+			$('.results')
+				.addClass('card shadow-sm')
+				.html(
+					`<h2 class="text-center my-3">${error.responseJSON
+						.msg}</h2>`
+				);
+		});
 });

@@ -1,10 +1,109 @@
-<div class="row">
-    <div class="col-md-4">
-        <div class="row">
-            <div class="col-md-12">
-                <h2>{{client.first_name}}</h1>
+<div class="my-5 card shadow-sm rounded-lg">
+    <div class="card-header bg-white">
+        <div class="row mb-3">
+            <div class="col">
+                <h5 class="mb-3">{{client.first_name}} (<a href="mailto:{{client.email}}">{{client.email}}</a>)</h5>
+                <button class="btn btn-outline-danger">Create Ticket</button>
             </div>
         </div>
     </div>
-    <div class="col-md-8"></div>
+</div>
+
+<div class="card shadow-sm mb-3">
+    <div class="card-header bg-light">
+        <div class="row">
+            <div class="col">
+                <h5 class="mb-3">Details</h5>
+            </div>
+        </div>
+    </div>
+    <div class="card-body bg-white">
+        <div class="row">
+            <div class="col-xxl-5 col-lg ">
+                <h6 class="font-weight-semi-bold ls mb-3">Account Information</h6>
+                <div class="row">
+                    <div class="col-5 col-sm-4">
+                        <p class="font-weight-bold mb-1">ID</p>
+                    </div>
+                    <div class="col">
+                        {{client.id}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5 col-sm-4">
+                        <p class="font-weight-bold mb-1">Email</p>
+
+                    </div>
+                    <div class="col">
+                        <a href="mailto:{{client.email}}">{{client.email}}</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5 col-sm-4">
+                        <p class="font-weight-bold mb-1">Job Title</p>
+                    </div>
+                    <div class="col">{{client.job_title}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-5 col-sm-4">
+                        <p class="font-weight-bold mb-1">Date Added</p>
+                    </div>
+                    <div class="col">{{client.date_added}}</div>
+                </div>
+            </div>
+            <div class="col-lg col-xxl-5 mt-4 mt-lg-0 offset-xxl-1">
+                <h6 class="font-weight-semi-bold ls mb-3 text-uppercase">
+                    Billing information
+                </h6>
+                <div class="row">
+                    <div class="col-5 col-sm-4">
+                        <p class="font-weight-bold mb-1">Company</p>
+                    </div>
+                    <div class="col">
+                        {{client.company}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5 col-sm-4">
+                        <p class="font-weight-bold mb-1">Address</p>
+                    </div>
+                    <div class="col">
+                        <address>
+                            {{client.street_address}} <br>
+                            {{client.city}}, {{client.state}}
+                        </address>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5 col-sm-4">
+                        <p class="font-weight-bold mb-1">Phone Number</p>
+                    </div>
+                    <div class="col">
+                        <a href="tel:+{{client.phone}}">+1-{{client.phone}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-header">
+        <h5 class="mb-0">Support Ticket History</h5>
+    </div>
+    <div class="card-body border-top p-0">
+        <div class="row no-gutters align-items-center border-bottom py-2 px-3">
+            <ul class="list-group">
+                <li class="group-item d-flex justify-content-around align-items-center py-2">
+                    <span class="badge badge-primary badge-pill">Closed</span>
+                    Problem with keyboard
+                </li>
+                <li class="group-item d-flex justify-content-around align-items-center py-2">
+                    <span class="badge badge-primary badge-pill">Closed</span>
+                    Problem with keyboard
+                </li>
+            </ul>
+        </div>
+    </div>
+
 </div>

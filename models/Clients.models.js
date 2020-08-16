@@ -6,8 +6,13 @@ const ClientSchema = new Schema({
 	last_name: String,
 	email: String,
 	gender: String,
-	company_name: String,
+	phone: String,
+	company: String,
 	job_title: String,
+	date_added: { type: Date },
+	street_address: String,
+	city: String,
+	state: String,
 	department: String,
 	support_tickets: Array,
 });
@@ -15,3 +20,21 @@ const ClientSchema = new Schema({
 const Client = model('Client', ClientSchema);
 
 module.exports = Client;
+
+// const newas = {
+// 	_id: { $oid: '5f2d9acdb3bab8063876ff39' },
+// 	id: '1',
+// 	first_name: 'Roldan',
+// 	last_name: 'Matejovsky',
+// 	email: 'rmatejovsky0@yellowbook.com',
+// 	gender: 'Male',
+// 	phone: '626-598-9212',
+// 	company: 'Morissette LLC',
+// 	job_title: 'Staff Scientist',
+// 	date_added: '{"$date":"2020-01-04T09:03:28.000Z"}',
+// 	street_address: '169 Butternut Street',
+// 	city: 'Alhambra',
+// 	state: 'California',
+// 	department: 'Jewelery',
+// 	support_tickets: [],
+// };
