@@ -65,5 +65,5 @@ app.use('/', require('./routes/index.routes.js'));
 
 app.listen(
 	PORT,
-	console.log(`Server running on http://node.devops.net/${PORT}`)
+	console.log(`Server running on http://node.devops.net:${PORT}/users`)
 );

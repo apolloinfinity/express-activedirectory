@@ -1,24 +1,31 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="shadow-md navbar">
     {{#if loggedIn}}
-    <a class="navbar-brand" href="/dashboard">AD Demo</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item">
-                <a class="nav-link" href="/dashboard">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/clients">Classified</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item logout"><a href="/users/logout" class="nav-link">Logout</a></li>
-        </ul>
+    <div class="mr-8">
+        <a href="/dashboard"
+            class="block p-3 mt-4 mr-2 font-semibold text-teal-400 lg:inline-block lg:mt-0 hover:text-white">
+            Logo
+        </a>
+    </div>
+    <div class="flex-grow block w-full lg:flex lg:items-center lg:w-auto">
+        <div class="text-sm lg:flex-grow">
+            <a href="/dashboard" class="block p-3 mt-4 mr-2 text-gray-400 lg:inline-block lg:mt-0 hover:text-white">
+                Home
+            </a>
+            <a href="/clients" class="block p-3 mt-4 mr-2 text-gray-400 lg:inline-block lg:mt-0 hover:text-white">
+                Clients
+            </a>
+        </div>
+    </div>
+
+    <div class="">
+        <a href="/users/logout" class="block p-3 mt-4 mr-2 text-gray-400 lg:inline-block lg:mt-0 hover:text-white">
+            Logout
+        </a>
     </div>
     {{else}}
-    <span class="navbar-brand mb-0 h1">AD Demo</span>
+    <div class="mx-auto">
+
+        <p class=" p-2 text-center text-white text-2xl">AD Demo</p>
+    </div>
     {{/if}}
 </nav>

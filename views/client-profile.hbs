@@ -1,109 +1,156 @@
-<div class="my-5 card shadow-sm rounded-lg">
-    <div class="card-header bg-white">
-        <div class="row mb-3">
-            <div class="col">
-                <h5 class="mb-3">{{client.first_name}} (<a href="mailto:{{client.email}}">{{client.email}}</a>)</h5>
-                <button class="btn btn-outline-danger">Create Ticket</button>
-            </div>
-        </div>
+<div class="my-4 overflow-hidden bg-white border border-gray-100 rounded shadow-lg card">
+    <div class="p-4 border-b border-gray-400 card-header">
+        <h5 class="mb-2 text-xl font-semibold">{{client.first_name}} (<a
+                href="mailto:{{client.email}}">{{client.email}}</a>)
+        </h5>
+        <a href="#" class="btn">+ Create Ticket</a>
+    </div>
+    <div class="p-4 card-body">
+        <p class="text-gray-700">Customer created</p>
+        <p class="text-gray-700">Create Ticket</p>
     </div>
 </div>
 
-<div class="card shadow-sm mb-3">
-    <div class="card-header bg-light">
-        <div class="row">
-            <div class="col">
-                <h5 class="mb-3">Details</h5>
-            </div>
+<div class="overflow-hidden bg-white border-gray-100 rounded shadow-lg card">
+    <div class="flex p-4 border-b card-header">
+        <div class="flex-1">
+            <h5 class="text-xl font-semibold ">Details</h5>
+        </div>
+        <div class="">
+            <a href="#" class="btn">Update Details</a>
         </div>
     </div>
-    <div class="card-body bg-white">
-        <div class="row">
-            <div class="col-xxl-5 col-lg ">
-                <h6 class="font-weight-semi-bold ls mb-3">Account Information</h6>
-                <div class="row">
-                    <div class="col-5 col-sm-4">
-                        <p class="font-weight-bold mb-1">ID</p>
+    <div class="p-4 bg-gray-100 card-body">
+
+        <section class="grid grid-cols-1 sm:grid-cols-2">
+            <div class="text-gray-600">
+                <h6 class="mb-3">ACCOUNT INFORMATION</h6>
+                <section class="grid sm:grid-cols-2">
+                    <div>
+                        <p class="mb-1 font-semibold">ID</p>
                     </div>
-                    <div class="col">
+                    <div>
                         {{client.id}}
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-5 col-sm-4">
-                        <p class="font-weight-bold mb-1">Email</p>
-
+                </section>
+                <section class="grid grid-cols-2">
+                    <div>
+                        <p class="mb-1 font-semibold">Created</p>
                     </div>
-                    <div class="col">
-                        <a href="mailto:{{client.email}}">{{client.email}}</a>
+                    <div>
+                        <p>01/12/2019 23:14</p>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-5 col-sm-4">
-                        <p class="font-weight-bold mb-1">Job Title</p>
+                </section>
+                <section class="grid sm:grid-cols-2">
+                    <div>
+                        <p class="mb-1 font-semibold">Email</p>
                     </div>
-                    <div class="col">{{client.job_title}}</div>
-                </div>
-                <div class="row">
-                    <div class="col-5 col-sm-4">
-                        <p class="font-weight-bold mb-1">Date Added</p>
+                    <div><a href="mailto:{{client.email}}" class="text-blue-500">{{client.email}}</a></div>
+                </section>
+                <section class="grid sm:grid-cols-2">
+                    <div>
+                        <p class="mb-1 font-semibold">Job Title</p>
                     </div>
-                    <div class="col">{{client.date_added}}</div>
-                </div>
+                    <div>
+                        <p class="text-gray-600">{{client.job_title}}</p>
+                    </div>
+                </section>
             </div>
-            <div class="col-lg col-xxl-5 mt-4 mt-lg-0 offset-xxl-1">
-                <h6 class="font-weight-semi-bold ls mb-3 text-uppercase">
-                    Billing information
-                </h6>
-                <div class="row">
-                    <div class="col-5 col-sm-4">
-                        <p class="font-weight-bold mb-1">Company</p>
+            <div class="text-gray-600">
+                <h6 class="mb-3">BILLING INFORMATION</h6>
+                <section class="grid sm:grid-cols-2">
+                    <div>
+                        <p class="mb-1 font-semibold">Company</p>
                     </div>
-                    <div class="col">
-                        {{client.company}}
+                    <div>
+                        <p>{{client.company}}</p>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-5 col-sm-4">
-                        <p class="font-weight-bold mb-1">Address</p>
+                </section>
+                <section class="grid grid-cols-2">
+                    <div>
+                        <p class="mb-1 font-semibold">Address</p>
                     </div>
-                    <div class="col">
+                    <div>
                         <address>
                             {{client.street_address}} <br>
                             {{client.city}}, {{client.state}}
                         </address>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-5 col-sm-4">
-                        <p class="font-weight-bold mb-1">Phone Number</p>
+                </section>
+                <section class="grid sm:grid-cols-2">
+                    <div>
+                        <p class="mb-1 font-semibold">Phone number</p>
                     </div>
-                    <div class="col">
-                        <a href="tel:+{{client.phone}}">+1-{{client.phone}}</a>
+                    <div><a href="tel:+{{client.phone}}" class="text-blue-500">+1-{{client.phone}}</a></div>
+                </section>
+                <section class="grid sm:grid-cols-2">
+                    <div>
+                        <p class="mb-1 font-semibold">Invoice</p>
                     </div>
-                </div>
+                    <div>
+                        <p class="font-semibold text-gray-600">1J349SDSS99</p>
+                    </div>
+                </section>
             </div>
-        </div>
+
+        </section>
+    </div>
+    <div class="flex justify-end p-4 border-t card-footer">
+        <a href="#" class="mr-3 btn">Refund</a>
+        <a href="#" class="btn">Save Changes</a>
     </div>
 </div>
 
-<div class="card shadow-sm">
-    <div class="card-header">
-        <h5 class="mb-0">Support Ticket History</h5>
-    </div>
-    <div class="card-body border-top p-0">
-        <div class="row no-gutters align-items-center border-bottom py-2 px-3">
-            <ul class="list-group">
-                <li class="group-item d-flex justify-content-around align-items-center py-2">
-                    <span class="badge badge-primary badge-pill">Closed</span>
-                    Problem with keyboard
-                </li>
-                <li class="group-item d-flex justify-content-around align-items-center py-2">
-                    <span class="badge badge-primary badge-pill">Closed</span>
-                    Problem with keyboard
-                </li>
-            </ul>
+<div class="my-4 overflow-hidden bg-white border-gray-100 rounded shadow-lg card">
+    <div class="p-4 border-b card-header">
+        <div class="flex-1">
+            <h5 class="text-xl font-semibold ">Support Ticket History</h5>
         </div>
     </div>
+    <div class="text-gray-700 card-body">
+        <section class="grid grid-cols-12 border-b">
+            <div class="col-span-1 p-3 ml-1">
+                <span class="px-2 py-1 text-sm font-semibold text-white bg-red-400 rounded-full">Urgent</span>
+            </div>
+            <div class="col-span-9 p-3">
+                <p>Computer can't connect to internet</p>
+            </div>
+            <div class="col-span-2 p-3">
+                <p>2019/02/23 15:29:45</p>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-12 border-b">
+            <div class="col-span-1 p-3 ml-1">
+                <span class="px-2 py-1 text-sm font-semibold text-white bg-orange-400 rounded-full">High</span>
+            </div>
+            <div class="col-span-9 p-3">
+                <p>Printer has paper jam, need it fixed before 10 AM</p>
+            </div>
+            <div class="col-span-2 p-3">
+                <p>2019/02/19 21:32:12</p>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-12 border-b">
+            <div class="col-span-1 p-3 ml-1">
+                <span class="px-2 py-1 text-sm font-semibold text-white bg-green-400 rounded-full">Closed</span>
+            </div>
+            <div class="col-span-9 p-3">
+                <p>Keyboard not working</p>
+            </div>
+            <div class="col-span-2 p-3">
+                <p>2019/02/12 23:32:12</p>
+            </div>
+        </section>
+
+    </div>
+    <div class="flex justify-center p-2 bg-gray-100 card-footer">
+        <a href="#" class="mr-3 text-blue-400">See all tickets <span class="font-semibold">></span></a>
+
+    </div>
+
 
 </div>
+
+{{!--  --}}

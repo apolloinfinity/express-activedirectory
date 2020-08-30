@@ -3,18 +3,24 @@
 
 
 {{#if clients}}
-<ul class="m-0 p-0">
+<div>
     {{#each clients}}
-    <div class="card ">
-        <div class="card-body">
-            <h5 class="card-title">{{first_name}} {{last_name}}</h5>
-            <h6 class="card-subtitle my-2 text-muted">Company: {{company_name}}</h6>
-            <a href="clients/{{_id}}" class="btn btn-primary">Client Profile</a>
-            <a href="" class="btn btn-secondary">Create Support Ticket</a>
+    <div class="my-5 bg-white border-gray-400 rounded shadow">
+        <div class="flex p-3">
+            <div class="flex-1">
+                <h5 class="block text-lg font-bold">{{first_name}} {{last_name}}</h5>
+                <p class="block font-semibold">Company: {{company}}</p>
+
+            </div>
+            <div class="flex items-center justify-center">
+
+                <a href="clients/{{_id}}" class="m-3 btn">Client Profile</a>
+                <a href="" class="m-3 btn">Create Support Ticket</a>
+            </div>
         </div>
     </div>
     {{/each}}
-</ul>
-{{else}}
-No clients
-{{/if}}
+    </ul>
+    {{else}}
+    No clients
+    {{/if}}
