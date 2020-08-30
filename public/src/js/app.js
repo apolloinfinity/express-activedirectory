@@ -45,13 +45,13 @@ $('#btn-search').click(function(e) {
 		last_name: wholeName[1],
 	})
 		.done((data) => {
-			$('.results').addClass('card shadow-sm').html(`
-		<ul class="list-group list-group-flush">
+			$('.results').addClass('shadow-lg').html(`
+		<div class="bg-white overflow-hidden rounded-md">
 
-            <li class="list-group-item d-flex justify-content-around align-items-center">
+            <div class="p-4 flex justify-between items-center">
                 <div class="text-center">
                     <p><strong>Client ID:</strong></p>
-                    <a href="clients/${data._id}">${data.id}</a>
+                    <a href="clients/${data._id}" class="text-blue-600">${data.id}</a>
                 </div>
                 <div class="text-center">
                     <p><strong>Name:</strong></p>
@@ -71,8 +71,8 @@ $('#btn-search').click(function(e) {
 						? data.support_tickets.length
 						: 0}</p>
 				</div>
-            </li>
-        </ul>
+            </div>
+        </div>
 		`);
 		})
 		.fail((error) => {
