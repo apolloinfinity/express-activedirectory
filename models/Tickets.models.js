@@ -9,7 +9,7 @@ const TicketSchema = new Schema({
 	company_name: String,
 	job_title: String,
 	department: String,
-	support_tickets: Array,
+	support_tickets: [],
 });
 
 const Ticket = model('Ticket', TicketSchema);

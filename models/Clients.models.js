@@ -14,7 +14,10 @@ const ClientSchema = new Schema({
 	city: String,
 	state: String,
 	department: String,
-	support_tickets: Array,
+	support_tickets: {
+		type: Schema.Types.ObjectId,
+		ref: 'Ticket',
+	},
 });
 
 const Client = model('Client', ClientSchema);
