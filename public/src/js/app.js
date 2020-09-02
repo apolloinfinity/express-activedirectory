@@ -1,15 +1,3 @@
-$(document).ready(() => {
-	let url = window.location.pathname;
-	let activePage = url.substring(url.lastIndexOf('/') + 1);
-	$('.nav-item .nav-link').each(function() {
-		var linkPage = this.href.substring(this.href.lastIndexOf('/') + 1);
-
-		if (activePage == linkPage) {
-			$(this).closest('li').addClass('active');
-		}
-	});
-});
-
 $(function() {
 	$('#search').autocomplete({
 		source: function(req, res) {
@@ -51,7 +39,7 @@ $('#btn-search').click(function(e) {
             <div class="p-4 flex justify-between items-center">
                 <div class="text-center">
                     <p><strong>Client ID:</strong></p>
-                    <a href="clients/${data._id}" class="text-blue-600">${data.id}</a>
+                    <a href="clients/${data._id}" class="text-blue-600 font-bold">${data.id}</a>
                 </div>
                 <div class="text-center">
                     <p><strong>Name:</strong></p>
